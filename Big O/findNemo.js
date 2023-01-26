@@ -15,14 +15,11 @@ const everyone = [
 const largeArr = new Array(1000).fill("nemo");
 
 const findNemo = (arr) => {
-  let t0 = performance.now();
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === "nemo") {
       console.log("Found Nemo!");
     }
   }
-  let t1 = performance.now();
-  console.log("calling findNemo method took: " + (t1 - t0) + " milliseconds!");
 };
 // This function gets slower depending on the size of the array!
 // Of course don't forget that it also depends on the power of the CPU of your computer,
@@ -35,4 +32,7 @@ const findNemo = (arr) => {
 // The most important question is:
 // How much the our program gets slower when increasing the input size??
 
-findNemo(largeArr);
+findNemo(largeArr); // O(n) --> Linear Time
+// for the nemo array => O(1)
+// for the everyone array => O(10)
+// for the largeArr array => O(1000)
