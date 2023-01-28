@@ -33,6 +33,7 @@ findNemo(everyone); // O(n) --> Linear time
 
 // 2. Remove (Drop) constants
 
+// SORRY FOR THE BAD NAMING :)
 const printFirstItemAndHalfOfTheItemsAndHi100Times = (items) => {
   console.log(items[0]);
 
@@ -73,3 +74,26 @@ const compressBoxes = (boxes1, boxes2) => {
 // O(n + m)
 // Each input has different term from the other
 // If the two loops were nested, we'd have O(n*m)
+
+// 4. Drop the non-dominant terms
+
+const numbers = [1, 2, 3, 4, 5];
+
+// SORRY FOR THE BAD NAMING :)
+const logAllNumbersAndPairsSum = (arr) => {
+  console.log("Here are all the numbers:");
+  arr.forEach((number) => {
+    console.log(number);
+  });
+
+  console.log("Here are all the sum pairs:");
+  arr.forEach((number1) => {
+    arr.forEach((number2) => {
+      console.log(number1 + number2);
+    });
+  });
+};
+
+logAllNumbersAndPairsSum(numbers); // O(n + n^2) === O(n^2) ---> quadratic time
+
+// We just care about the most significant one!
