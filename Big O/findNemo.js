@@ -32,7 +32,26 @@ const findNemo = (arr) => {
 // The most important question is:
 // How much the our program gets slower when increasing the input size??
 
-findNemo(largeArr); // O(n) --> Linear Time
+findNemo(everyone); // O(n) --> Linear Time
 // for the nemo array => O(1)
 // for the everyone array => O(10)
 // for the largeArr array => O(1000)
+
+const findNemo2 = (arr) => {
+  arr.forEach((fish) => {
+    if (fish === "nemo") {
+      console.log("Found Nemo!");
+    }
+  });
+};
+
+const findNemo3 = (arr) => {
+  for (let fish of arr) {
+    if (fish === "nemo") {
+      console.log("Found Nemo!");
+    }
+  }
+};
+
+findNemo2(everyone);
+findNemo3(everyone);
