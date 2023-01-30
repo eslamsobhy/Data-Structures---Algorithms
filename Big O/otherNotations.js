@@ -26,3 +26,8 @@ const logAllpairs = (arr) => {
 };
 
 logAllpairs(letters); // O(n * n) === O(n^2) --> quadratic time
+
+// Quick overview of the O(n!)
+// It means that we are adding a nested loop for every elment of the input we have!
+// The most expensive one!
+// Not gonna see it much!
