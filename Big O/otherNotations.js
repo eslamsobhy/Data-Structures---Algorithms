@@ -31,3 +31,17 @@ logAllpairs(letters); // O(n * n) === O(n^2) --> quadratic time
 // It means that we are adding a nested loop for every elment of the input we have!
 // The most expensive one!
 // Not gonna see it much!
+
+// Calculating the length of a string:
+const calcLength = (str) => {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    count++;
+  }
+  return count;
+};
+
+console.log(calcLength("eslamsobhyahmedabdallah"));
+
+// In javascript the length property just consumes O(1); simple look up to the length property from the string object!
+// But we have built a O(n) function to calulate it!
