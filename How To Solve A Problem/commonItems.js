@@ -16,6 +16,7 @@
 // gonna return true or false
 
 // The easy naive solution: O(n*m) you do not have to code, you can just talk about it!
+// It has a space complexity of O(1)
 
 const firstArr = ["a", "b", "c", "x"];
 const secondArr = ["y", "z", "x"];
@@ -47,6 +48,8 @@ console.log(isThereCommonItems(firstArr, secondArr));
     - then we check if the item in the second array is a property inside of the object:
     secondArr[index] === obj.properties??
 */
+
+// It has a spcae complexity of O(n)
 
 const containsCommonItems = (arr1, arr2) => {
   /*
