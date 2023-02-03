@@ -75,3 +75,18 @@ const containsCommonItems = (arr1, arr2) => {
 };
 
 console.log(containsCommonItems(firstArr, secondArr)); // O(n + m) which is much faster - Linear
+
+/*
+    - Sometimes there are some solutions using language specific methods,
+      like this one here!
+    - Any language community developers just make sure that their built in 
+      functions are the fastest!
+    - May be they are using the same algorithm you just implemented (the map one),
+      and provide it so that you don't have to write these methods over and over again!
+*/
+
+const containsCommonItems2 = (arr1, arr2) => {
+  return arr1.some((item) => arr2.includes(item));
+};
+
+console.log(containsCommonItems2(firstArr, secondArr));
