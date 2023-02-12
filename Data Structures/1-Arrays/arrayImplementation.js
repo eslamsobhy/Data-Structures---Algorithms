@@ -1,6 +1,10 @@
 /*
-    
-
+    - Getting the length takes O(1): it is a property
+    - Access a specific item takes O(1): random access
+    - Pushing element to the end of an array takes O(1): assignment
+    - Popping an element from the end of an array takes O(1): one deletiion statement
+    - Deleting an element at some index takes O(n): cost for shifting
+    - Note how the length is being changed at the end of the methods affecting it!
 */
 
 class Arrayy {
