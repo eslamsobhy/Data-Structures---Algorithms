@@ -27,5 +27,8 @@ const reverse2 = (str) => {
   return backWard.join(""); // converting it back to a string
 };
 
+const reverse3 = (str) => [...str].reverse().join("");
+
 console.log(reverseString("Hi my name is eslam!"));
 console.log(reverse2("Hi my name is eslam!"));
+console.log(reverse3("Hi my name is eslam!"));
