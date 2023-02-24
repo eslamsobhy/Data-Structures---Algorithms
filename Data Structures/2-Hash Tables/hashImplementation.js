@@ -14,9 +14,12 @@ class HashTable {
 
   // adding to the hash table
   set(key, value) {
-    const index = this._hash(key);
-    this.data[index] = new Array();
-    const obj = { k: key, v: value };
+    const index = this._hash(key); // Getting the address
+    const obj = { k: key, v: value }; // Creating an object with the data provided
+    // Check if there are no elements at that address
+    if (!this.data[index]) {
+      this.data[index] = new Array();
+    }
     this.data[index].push(obj);
     return this.data[index];
   }
@@ -35,13 +38,11 @@ class HashTable {
 }
 
 const hashObj = new HashTable(50);
-console.log(hashObj._hash("grabes"));
-console.log(hashObj.set("grabes", 1000));
-console.log(hashObj.set("grabes", 100));
-console.log(hashObj.set("grabes", 200));
-console.log(hashObj._hash("apples"));
-console.log(hashObj.set("apples", 430));
+hashObj.set("grapes", 1000);
+hashObj.set("grapes", 430);
+hashObj.set("grapes", 100);
+hashObj.set("apples", 430);
 
-console.log(hashObj.get("grabe"), "FOUND!!");
-console.log(hashObj.get("grabes"), "FOUND!!");
+// console.log(hashObj.get("grape"), "FOUND!!");
+// console.log(hashObj.get("grapes"), "FOUND!!");
 console.log(hashObj);
