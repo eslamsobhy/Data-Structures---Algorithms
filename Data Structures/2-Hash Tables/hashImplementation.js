@@ -41,6 +41,28 @@ class HashTable {
       return "!!OOPS NOT FOUND!!";
     }
   }
+
+  // O(n * m) with collisions this is very slow!
+  keys() {
+    const keys = [];
+    this.data.forEach((bucket) => {
+      if (bucket) {
+        bucket.forEach((item) => keys.push(item.k));
+      }
+    });
+    return keys;
+  }
+
+  // O(n * m) with collisions this is so slow
+  valuesCount() {
+    let count = 0;
+    this.data.forEach((bucket) => {
+      if (bucket) {
+        bucket.forEach((item) => (count += item.v));
+      }
+    });
+    return count;
+  }
 }
 
 const hashObj = new HashTable(50);
@@ -48,7 +70,11 @@ hashObj.set("grapes", 1000);
 hashObj.set("grapes", 430);
 hashObj.set("grapes", 100);
 hashObj.set("apples", 430);
+hashObj.set("oranges", 200);
 
 console.log(hashObj.get("apples"));
 console.log(hashObj.get("grapes"));
 console.log(hashObj);
+
+console.log(hashObj.keys());
+console.log(hashObj.valuesCount());
