@@ -4,6 +4,7 @@ class HashTable {
   }
 
   // hash function
+  // O(1) we are just looping over the key which is too fast
   _hash(key) {
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
@@ -13,6 +14,7 @@ class HashTable {
   }
 
   // adding to the hash table
+  // O(1) just pushing
   set(key, value) {
     const index = this._hash(key); // Getting the address
     const obj = { k: key, v: value }; // Creating an object with the data provided
@@ -25,6 +27,8 @@ class HashTable {
   }
 
   // lookups
+  // O(1) with a good hash function and no collisions
+  // O(n) with collisions and not so good hash function
   get(key) {
     const index = this._hash(key);
     const items = this.data[index];
