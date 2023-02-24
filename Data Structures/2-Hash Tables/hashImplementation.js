@@ -20,6 +20,18 @@ class HashTable {
     this.data[index].push(obj);
     return this.data[index];
   }
+
+  // DON'T FORGET: UP UNTILL NOW WE DIDN'T HANDLE COLLISIONS YET!!
+  // lookups
+  get(key) {
+    const index = this._hash(key);
+    const item = this.data[index];
+    if (item) {
+      return item[0];
+    } else {
+      return "!!OOPS NOT";
+    }
+  }
 }
 
 const hashObj = new HashTable(50);
@@ -29,4 +41,7 @@ console.log(hashObj.set("grabes", 100));
 console.log(hashObj.set("grabes", 200));
 console.log(hashObj._hash("apples"));
 console.log(hashObj.set("apples", 430));
+
+console.log(hashObj.get("grabe"), "FOUND!!");
+console.log(hashObj.get("grabes"), "FOUND!!");
 console.log(hashObj);
