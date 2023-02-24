@@ -24,15 +24,17 @@ class HashTable {
     return this.data[index];
   }
 
-  // DON'T FORGET: UP UNTILL NOW WE DIDN'T HANDLE COLLISIONS YET!!
   // lookups
   get(key) {
     const index = this._hash(key);
-    const item = this.data[index];
-    if (item) {
-      return item[0];
+    const items = this.data[index];
+    if (items) {
+      // Note: using filter() will bring back all the items with that key,
+      // while using find() will bring back the first match!
+      const item = items.find((element) => element.k === key);
+      return item;
     } else {
-      return "!!OOPS NOT";
+      return "!!OOPS NOT FOUND!!";
     }
   }
 }
@@ -43,6 +45,6 @@ hashObj.set("grapes", 430);
 hashObj.set("grapes", 100);
 hashObj.set("apples", 430);
 
-// console.log(hashObj.get("grape"), "FOUND!!");
-// console.log(hashObj.get("grapes"), "FOUND!!");
+console.log(hashObj.get("apples"));
+console.log(hashObj.get("grapes"));
 console.log(hashObj);
