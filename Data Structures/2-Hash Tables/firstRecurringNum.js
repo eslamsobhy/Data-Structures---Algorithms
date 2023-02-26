@@ -33,6 +33,7 @@ const firstRecurringChar = (array) => {
 
 // O(n) much faster!
 // meets the last version requirements
+// But doesn't meet this version's requirements!!
 const firstRecurringChar2 = (array) => {
   // use the built in hash table
   let map = {};
