@@ -76,6 +76,18 @@ class HashTable {
     }
     return this._min(recurring);
   }
+
+  // faster soln => O(n)!!!!
+  firstRecurringElementOptimized(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      let index = this._hash(arr[i]);
+      if (this.data[index]) {
+        return arr[i];
+      }
+      this.data[index] = arr[i];
+    }
+    return undefined;
+  }
 }
 
 const arr1 = [2, 1, 1, 2, 3, 5, 1, 2, 4, 5]; // 1
@@ -93,3 +105,12 @@ hashObj3.fillHashTable(arr3);
 console.log(hashObj1.firstRecurringElement());
 console.log(hashObj2.firstRecurringElement());
 console.log(hashObj3.firstRecurringElement());
+
+// testing the optimized version
+const obj1 = new HashTable(20);
+const obj2 = new HashTable(20);
+const obj3 = new HashTable(20);
+
+console.log(obj1.firstRecurringElementOptimized(arr1));
+console.log(obj2.firstRecurringElementOptimized(arr2));
+console.log(obj3.firstRecurringElementOptimized(arr3));
