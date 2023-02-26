@@ -20,6 +20,7 @@
 */
 
 // Naive implementation => O(n^2)
+// space complexity => O(1)
 const firstRecurringChar = (array) => {
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
@@ -32,6 +33,7 @@ const firstRecurringChar = (array) => {
 };
 
 // O(n) much faster!
+// Space complexity => O(n)
 // meets the last version requirements
 // But doesn't meet this version's requirements!!
 const firstRecurringChar2 = (array) => {
