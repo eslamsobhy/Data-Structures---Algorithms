@@ -19,6 +19,7 @@
      in the previous version it wasn't!
 */
 
+// Naive implementation => O(n^2)
 const firstRecurringChar = (array) => {
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
@@ -30,8 +31,23 @@ const firstRecurringChar = (array) => {
   return undefined;
 };
 
+// O(n) much faster!
+// meets the last version requirements
+const firstRecurringChar2 = (array) => {
+  // use the built in hash table
+  let map = {};
+  for (let i = 0; i < array.length; i++) {
+    if (map[array[i]]) {
+      return array[i];
+    }
+    map[array[i]] = true;
+  }
+  return undefined;
+};
+
 const arr1 = [2, 5, 1, 2, 3, 5, 1, 2, 4];
 const arr2 = [2, 1, 1, 2, 3, 5, 1, 2, 4];
 const arr3 = [1, 2, 3, 5];
 
 console.log(firstRecurringChar(arr2));
+console.log(firstRecurringChar2(arr2));
