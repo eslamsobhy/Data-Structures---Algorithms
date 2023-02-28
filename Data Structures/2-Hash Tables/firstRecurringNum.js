@@ -48,7 +48,10 @@ const firstRecurringChar2 = (array) => {
   return undefined;
 };
 
-// This approach meets this version's requirements
+// This approach meets this version's requirements => O(n)
+// space complexity => O(n)
+// Note that in order for you to come with a faster algoritms,
+// you needed to increase the space complexity!
 const firstRecurringChar3 = (array) => {
   // using the built-in hash table
   const map = {};
@@ -57,6 +60,8 @@ const firstRecurringChar3 = (array) => {
   const repeated = [];
 
   // filling the hash-table with the array's elements indices
+  // time-complexity => O(n)
+  // space-complexity => O(n)
   for (let i = 0; i < array.length; i++) {
     if (map[array[i]]) {
       map[array[i]].push(i);
@@ -66,6 +71,8 @@ const firstRecurringChar3 = (array) => {
   }
 
   // filling the array of repeated elements
+  // time-complexity => O(m)
+  // space-complexity => O(m)
   for (const num in map) {
     if (map[num].length > 1) {
       let numData = { num, firstOccurance: map[num][0] };
@@ -74,6 +81,8 @@ const firstRecurringChar3 = (array) => {
   }
 
   // Determining the element that appeard first and then repeated
+  // time-complexity => O(x)
+  // space-complexity => O(1)
   let firstRecurring = repeated[0];
   for (let i = 1; i < repeated.length; i++) {
     if (repeated[i].firstOccurance < firstRecurring.firstOccurance) {
@@ -88,6 +97,10 @@ const firstRecurringChar3 = (array) => {
 
   return undefined;
 };
+
+// to sum the time&space complexity
+// time-complexity => O(n) + O(m) + O(x) => Linear instead of quadratic in the prev code version
+// space-complexity => O(n) + O(m) + O(1) => Linear instead of constant in the prev code version
 
 const arr1 = [2, 5, 1, 2, 3, 5, 1, 2, 4];
 const arr2 = [2, 1, 1, 2, 3, 5, 1, 2, 4];
