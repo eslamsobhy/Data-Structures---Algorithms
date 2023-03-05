@@ -15,6 +15,14 @@ const myLinkedList = {
 };
 */
 
+// Creating the node structure separated
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
 class LinkedList {
   constructor(value) {
     this.head = {
@@ -33,10 +41,8 @@ class LinkedList {
   }
 
   prepend(value) {
-    let p = {
-      value: value,
-      next: this.head,
-    };
+    let p = new Node(value);
+    p.next = this.head;
     this.head = p;
     this.length += 1;
   }
