@@ -1,5 +1,6 @@
 // 10 -> 5 -> 16
 
+/*
 const myLinkedList = {
   head: {
     value: 10,
@@ -12,5 +13,19 @@ const myLinkedList = {
     },
   },
 };
+*/
+
+class LinkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null,
+    };
+    this.tail = this.head; // they both point to the same node
+    this.length = 1;
+  }
+}
+
+const myLinkedList = new LinkedList(10);
 
 console.log(myLinkedList);
