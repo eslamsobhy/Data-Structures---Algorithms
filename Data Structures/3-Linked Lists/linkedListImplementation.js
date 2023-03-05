@@ -24,8 +24,17 @@ class LinkedList {
     this.tail = this.head; // they both point to the same node
     this.length = 1;
   }
+
+  append(value) {
+    let p = this.tail;
+    p.next = { value: value, next: null };
+    this.tail = p.next;
+    this.length += 1;
+  }
 }
 
 const myLinkedList = new LinkedList(10);
+myLinkedList.append(5);
+myLinkedList.append(16);
 
 console.log(myLinkedList);
