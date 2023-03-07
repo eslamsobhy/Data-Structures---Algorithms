@@ -15,7 +15,7 @@ const myLinkedList = {
 };
 */
 
-// Creating the node structure separated
+// Creating the Node structure separated
 class Node {
   constructor(value) {
     this.value = value;
@@ -23,6 +23,7 @@ class Node {
   }
 }
 
+// Our Linked List
 class LinkedList {
   constructor(value) {
     this.head = {
@@ -34,9 +35,10 @@ class LinkedList {
   }
 
   append(value) {
+    let newNode = new Node(value);
     let p = this.tail;
-    p.next = { value: value, next: null };
-    this.tail = p.next;
+    this.tail = newNode;
+    p.next = newNode;
     this.length += 1;
   }
 
@@ -51,7 +53,7 @@ class LinkedList {
 const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
-myLinkedList.prepend(77);
-myLinkedList.prepend(1);
+// myLinkedList.prepend(77);
+// myLinkedList.prepend(1);
 
 console.log(myLinkedList);
