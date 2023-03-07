@@ -50,6 +50,16 @@ class LinkedList {
     this.head = p;
     this.length += 1;
   }
+
+  displayList() {
+    let currentNode = this.head;
+    let listArray = [];
+    while (currentNode !== null) {
+      listArray.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return listArray;
+  }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -58,4 +68,4 @@ myLinkedList.append(16);
 myLinkedList.prepend(77);
 myLinkedList.prepend(1);
 
-console.log(myLinkedList);
+console.log(myLinkedList.displayList());
