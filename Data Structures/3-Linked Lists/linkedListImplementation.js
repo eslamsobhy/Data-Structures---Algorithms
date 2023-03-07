@@ -62,14 +62,21 @@ class LinkedList {
   }
 
   insert(index, value) {
-    const newNode = new Node(value);
-    let current = this.head;
-    for (let i = 0; i < index - 1; i++) {
-      current = current.next;
+    // checking params
+    if (index === 0) {
+      return this.prepend(value);
+    } else if (index >= this.length) {
+      return this.append(value);
+    } else {
+      const newNode = new Node(value);
+      let current = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        current = current.next;
+      }
+      newNode.next = current.next;
+      current.next = newNode;
+      this.length++;
     }
-    newNode.next = current.next;
-    current.next = newNode;
-    this.length++;
   }
 }
 
@@ -79,9 +86,11 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 
 myLinkedList.prepend(77);
-// myLinkedList.prepend(1);
+myLinkedList.prepend(1);
 
 myLinkedList.insert(2, 99);
-myLinkedList.insert(2, 88);
+myLinkedList.insert(20, 88);
+myLinkedList.insert(0, 77);
+myLinkedList.insert(1, 66);
 
 console.log(myLinkedList.displayList());
