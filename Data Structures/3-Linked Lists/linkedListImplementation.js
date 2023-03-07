@@ -34,6 +34,7 @@ class LinkedList {
     this.length = 1;
   }
 
+  // Time complexity => O(1)
   append(value) {
     let newNode = new Node(value);
     let p = this.tail;
@@ -42,6 +43,7 @@ class LinkedList {
     this.length += 1;
   }
 
+  // Time complexity => O(1)
   prepend(value) {
     let p = new Node(value);
     p.next = this.head;
@@ -53,7 +55,7 @@ class LinkedList {
 const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
-// myLinkedList.prepend(77);
-// myLinkedList.prepend(1);
+myLinkedList.prepend(77);
+myLinkedList.prepend(1);
 
 console.log(myLinkedList);
