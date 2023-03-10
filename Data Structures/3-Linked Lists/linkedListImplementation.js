@@ -51,6 +51,7 @@ class LinkedList {
     this.length += 1;
   }
 
+  // Time complexity => O(n)
   displayList() {
     let currentNode = this.head;
     let listArray = [];
@@ -61,6 +62,7 @@ class LinkedList {
     return listArray;
   }
 
+  // Time complexity => O(n)
   insert(index, value) {
     // checking params
     if (index === 0) {
@@ -79,6 +81,7 @@ class LinkedList {
     }
   }
 
+  // Time complexity => O(n)
   remove(index) {
     // check parameter
     if (index < 0 || index >= this.length) {
