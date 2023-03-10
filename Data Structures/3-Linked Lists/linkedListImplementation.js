@@ -78,6 +78,22 @@ class LinkedList {
       this.length++;
     }
   }
+
+  remove(index) {
+    // check parameter
+    if (index < 0 || index >= this.length) {
+      return "ERROR: The Provided Index Is Out Of Scope!";
+    } else {
+      let currentNode = this.head; // pointing to the first element
+      // traverse until we get to the element before the target one
+      for (let i = 0; i < index - 1; i++) {
+        currentNode = currentNode.next;
+      }
+      // skipping the target one
+      currentNode.next = currentNode.next.next;
+      this.length--;
+    }
+  }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -92,5 +108,10 @@ myLinkedList.insert(2, 99);
 myLinkedList.insert(20, 88);
 myLinkedList.insert(0, 77);
 myLinkedList.insert(1, 66);
+
+myLinkedList.remove(2);
+myLinkedList.remove(1);
+myLinkedList.remove(0);
+myLinkedList.remove(20);
 
 console.log(myLinkedList.displayList());
