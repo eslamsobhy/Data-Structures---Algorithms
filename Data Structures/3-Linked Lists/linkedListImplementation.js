@@ -26,12 +26,18 @@ class Node {
 // Our Linked List
 class LinkedList {
   constructor(value) {
-    this.head = {
-      value: value,
-      next: null,
-    };
-    this.tail = this.head; // they both point to the same node
-    this.length = 1;
+    if (value) {
+      this.head = {
+        value: value,
+        next: null,
+      };
+      this.tail = this.head; // they both point to the same node
+      this.length = 1;
+    } else {
+      this.head = {};
+      this.tail = this.head;
+      this.length = 0;
+    }
   }
 
   // Time complexity => O(1)
@@ -97,6 +103,35 @@ class LinkedList {
       this.length--;
     }
   }
+
+  // Time Complexity => O(n)
+  // Space Complexity => O(n)
+  reverse() {
+    // initializations
+    let current = this.head;
+    const list = [];
+    const reversed = [];
+    const linkedList = new LinkedList();
+
+    // the linked list is reversed inside the list array
+    while (current !== null) {
+      list.push(current.value);
+      current = current.next;
+    }
+
+    // new linked list filled with the reversed array elements
+    for (let i = list.length - 1; i >= 0; i--) {
+      linkedList.append(list[i]);
+    }
+
+    // for displaying purposes
+    let cur = linkedList.head.next;
+    while (cur !== null) {
+      reversed.push(cur.value);
+      cur = cur.next;
+    }
+    console.log(reversed);
+  }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -116,5 +151,7 @@ myLinkedList.remove(2);
 myLinkedList.remove(1);
 myLinkedList.remove(0);
 myLinkedList.remove(20);
+
+myLinkedList.reverse();
 
 console.log(myLinkedList.displayList());
