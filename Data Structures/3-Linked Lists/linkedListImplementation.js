@@ -107,6 +107,10 @@ class LinkedList {
   // Time Complexity => O(n)
   // Space Complexity => O(n)
   reverse() {
+    // Checking the input
+    if (!this.head.next) {
+      return [this.head.value];
+    }
     // initializations
     let current = this.head;
     const list = [];
@@ -130,7 +134,7 @@ class LinkedList {
       reversed.push(cur.value);
       cur = cur.next;
     }
-    console.log(reversed);
+    return reversed;
   }
 }
 
@@ -152,6 +156,6 @@ myLinkedList.remove(1);
 myLinkedList.remove(0);
 myLinkedList.remove(20);
 
-myLinkedList.reverse();
+console.log(myLinkedList.reverse());
 
 console.log(myLinkedList.displayList());
