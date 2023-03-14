@@ -136,6 +136,27 @@ class LinkedList {
     }
     return reversed;
   }
+
+  // Time complexity => O(n)
+  // Space Complexity => O(1)
+  reverse2() {
+    // if just one element in the linked list
+    if (!this.head.next) {
+      return [this.head.value];
+    }
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+    while (second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this;
+  }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -159,3 +180,5 @@ myLinkedList.remove(20);
 console.log(myLinkedList.reverse());
 
 console.log(myLinkedList.displayList());
+
+console.log(myLinkedList.reverse2());
