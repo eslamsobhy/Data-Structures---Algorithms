@@ -13,7 +13,12 @@ class Stack {
   }
 
   //   check if the stack is empty
-  isEmpty() {}
+  isEmpty() {
+    if (this.length === 0) {
+      return true;
+    }
+    return false;
+  }
 
   //   add element to the stack
   push() {}
@@ -27,3 +32,6 @@ class Stack {
 
 // instantiation
 const myStack = new Stack();
+
+// testing
+console.log(myStack.isEmpty());
