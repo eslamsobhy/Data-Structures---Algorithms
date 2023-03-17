@@ -21,7 +21,17 @@ class Stack {
   }
 
   //   add element to the stack
-  push() {}
+  push(value) {
+    const newNode = new Node(value);
+    if (this.isEmpty()) {
+      this.bottom = newNode;
+    } else {
+      this.top.next = newNode;
+    }
+    this.top = newNode;
+    this.length++;
+    return this;
+  }
 
   //   remove element from the stack
   pop() {}
@@ -34,4 +44,8 @@ class Stack {
 const myStack = new Stack();
 
 // testing
+console.log(myStack.push(77));
+console.log(myStack.push(88));
+console.log(myStack.push(99));
+
 console.log(myStack.isEmpty());
