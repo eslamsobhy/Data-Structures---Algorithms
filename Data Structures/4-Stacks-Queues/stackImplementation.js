@@ -34,7 +34,26 @@ class Stack {
   }
 
   //   remove element from the stack
-  pop() {}
+  pop() {
+    let poppedNode = this.top;
+    if (this.isEmpty() || this.length === 1) {
+      this.top = null;
+      this.bottom = null;
+    } else {
+      let current = this.bottom;
+      while (current.next.next !== null) {
+        current = current.next;
+      }
+      poppedNode = current.next;
+      this.top = current;
+      current.next = null;
+    }
+
+    if (this.length >= 1) {
+      this.length--;
+    }
+    return poppedNode;
+  }
 
   //   gets the top element of the stack
   peek() {
@@ -52,5 +71,8 @@ console.log(myStack.push(88));
 console.log(myStack.peek());
 console.log(myStack.push(99));
 console.log(myStack.peek());
+
+console.log(myStack.pop());
+console.log("The stack:", myStack);
 
 console.log(myStack.isEmpty());
