@@ -37,7 +37,9 @@ class Stack {
   pop() {}
 
   //   gets the top element of the stack
-  peek() {}
+  peek() {
+    return this.top;
+  }
 }
 
 // instantiation
@@ -45,7 +47,10 @@ const myStack = new Stack();
 
 // testing
 console.log(myStack.push(77));
+console.log(myStack.peek());
 console.log(myStack.push(88));
+console.log(myStack.peek());
 console.log(myStack.push(99));
+console.log(myStack.peek());
 
 console.log(myStack.isEmpty());
