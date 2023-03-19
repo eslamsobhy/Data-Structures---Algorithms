@@ -24,11 +24,13 @@ class Stack {
   push(value) {
     const newNode = new Node(value);
     if (this.isEmpty()) {
+      this.top = newNode;
       this.bottom = newNode;
     } else {
-      this.top.next = newNode;
+      const topHolder = this.top;
+      this.top = newNode;
+      this.top.next = topHolder;
     }
-    this.top = newNode;
     this.length++;
     return this;
   }
@@ -66,13 +68,13 @@ const myStack = new Stack();
 
 // testing
 console.log(myStack.push(77));
-console.log(myStack.peek());
+// console.log(myStack.peek());
 console.log(myStack.push(88));
-console.log(myStack.peek());
+// console.log(myStack.peek());
 console.log(myStack.push(99));
-console.log(myStack.peek());
+// console.log(myStack.peek());
 
-console.log(myStack.pop());
-console.log("The stack:", myStack);
+// console.log(myStack.pop());
+// console.log("The stack:", myStack);
 
-console.log(myStack.isEmpty());
+// console.log(myStack.isEmpty());
