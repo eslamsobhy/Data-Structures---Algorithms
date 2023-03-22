@@ -21,7 +21,9 @@ class Queue {
   }
 
   //   return the first in the queue
-  peek() {}
+  peek() {
+    return this.first;
+  }
 
   // add element to the queue
   enqueue() {}
