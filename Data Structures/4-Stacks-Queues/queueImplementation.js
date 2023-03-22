@@ -40,12 +40,31 @@ class Queue {
   }
 
   //   remove element from the queue
-  dequeue() {}
+  dequeue() {
+    if (this.isEmpty()) {
+      return null;
+    } else if (this.length === 1) {
+      this.last = null;
+    }
+    const dequeuedElement = this.first;
+    this.first = this.first.next;
+    this.length--;
+    return dequeuedElement;
+  }
 }
 
 const myQueue = new Queue();
 
 myQueue.enqueue("eslam");
+console.log(myQueue.peek());
 myQueue.enqueue("mohamed");
+console.log(myQueue.peek());
 myQueue.enqueue("ali");
+console.log(myQueue.peek());
+myQueue.dequeue();
+console.log(myQueue.peek());
+myQueue.dequeue();
+console.log(myQueue.peek());
+myQueue.dequeue();
+console.log(myQueue.peek());
 console.log(myQueue);
