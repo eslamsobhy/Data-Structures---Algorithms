@@ -26,10 +26,26 @@ class Queue {
   }
 
   // add element to the queue
-  enqueue() {}
+  enqueue(value) {
+    const newNode = new Node(value);
+    if (this.isEmpty()) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    this.length++;
+    return this;
+  }
 
   //   remove element from the queue
   dequeue() {}
 }
 
 const myQueue = new Queue();
+
+myQueue.enqueue("eslam");
+myQueue.enqueue("mohamed");
+myQueue.enqueue("ali");
+console.log(myQueue);
