@@ -13,7 +13,12 @@ class Queue {
   }
 
   //   check if the queue is empty
-  isEmpty() {}
+  isEmpty() {
+    if (this.length === 0) {
+      return true;
+    }
+    return false;
+  }
 
   //   return the first in the queue
   peek() {}
